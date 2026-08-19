@@ -52,7 +52,7 @@
       <div class="placeholder-photo">Foto histórica de la iglesia<br>(sustituir)</div>
       <div>
         <h2>Nuestra historia</h2>
-        <p>Vida Abundante de Puebla nació con el deseo de compartir el amor de Cristo y ser una familia espiritual para quienes buscan a Dios. Desde nuestros inicios hemos crecido gracias a la fidelidad de Dios y al compromiso de cada miembro de esta comunidad. [Texto de ejemplo — agrega aquí el año de fundación, los fundadores y los hitos más importantes de la iglesia.]</p>
+        <p data-field="nosotros.historia">Vida Abundante de Puebla nació con el deseo de compartir el amor de Cristo y ser una familia espiritual para quienes buscan a Dios. Desde nuestros inicios hemos crecido gracias a la fidelidad de Dios y al compromiso de cada miembro de esta comunidad. [Texto de ejemplo — agrega aquí el año de fundación, los fundadores y los hitos más importantes de la iglesia.]</p>
       </div>
     </div>
 
@@ -60,17 +60,17 @@
       <div class="card">
         <div class="card-icon">🎯</div>
         <h3>Misión</h3>
-        <p>Glorificar a Dios haciendo discípulos de Jesucristo, formando líderes y sirviendo a nuestra comunidad con amor genuino. [Texto de ejemplo.]</p>
+        <p data-field="nosotros.mision">Glorificar a Dios haciendo discípulos de Jesucristo, formando líderes y sirviendo a nuestra comunidad con amor genuino. [Texto de ejemplo.]</p>
       </div>
       <div class="card">
         <div class="card-icon">🔭</div>
         <h3>Visión</h3>
-        <p>Ser una iglesia que impacta a Puebla y más allá, formando familias saludables, líderes íntegros y discípulos comprometidos con el Reino de Dios. [Texto de ejemplo.]</p>
+        <p data-field="nosotros.vision">Ser una iglesia que impacta a Puebla y más allá, formando familias saludables, líderes íntegros y discípulos comprometidos con el Reino de Dios. [Texto de ejemplo.]</p>
       </div>
       <div class="card">
         <div class="card-icon">💛</div>
         <h3>Valores</h3>
-        <p>Amor, integridad, servicio, excelencia y fe. Vivimos estos valores en cada área de nuestra iglesia. [Texto de ejemplo.]</p>
+        <p data-field="nosotros.valores">Amor, integridad, servicio, excelencia y fe. Vivimos estos valores en cada área de nuestra iglesia. [Texto de ejemplo.]</p>
       </div>
     </div>
   </div>
@@ -83,7 +83,7 @@
       <h2>Nuestro equipo pastoral</h2>
       <p>[Sustituye con los nombres, fotos y una breve reseña de tus pastores y líderes.]</p>
     </div>
-    <div class="grid grid--3">
+    <div class="grid grid--3" data-field-list="liderazgo">
       <div class="card--photo card">
         <div class="card-photo">Foto del Pastor Principal<br>(sustituir)</div>
         <div class="card-body"><h3>[Nombre del Pastor]</h3><p>Pastor principal — [breve biografía de ejemplo].</p></div>
@@ -136,9 +136,9 @@
       <div>
         <h4>Visítanos</h4>
         <ul>
-          <li>[Dirección de la iglesia — Puebla, Pue.]</li>
-          <li>[Teléfono / WhatsApp]</li>
-          <li>[correo@vidaabundantepuebla.org]</li>
+          <li data-field="general.direccion">[Dirección de la iglesia — Puebla, Pue.]</li>
+          <li data-field="general.telefono">[Teléfono / WhatsApp]</li>
+          <li data-field="general.correo">[correo@vidaabundantepuebla.org]</li>
         </ul>
       </div>
     </div>
@@ -149,5 +149,6 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/content-loader.js"></script>
 </body>
 </html>
