@@ -44,7 +44,7 @@
   <div class="container">
     <span class="hero-eyebrow">Formación bíblica y de liderazgo</span>
     <h1>Instituto Bíblico Vida Abundante</h1>
-    <p class="lead">Un espacio para profundizar en la Palabra de Dios, formar carácter cristiano y desarrollar liderazgo al servicio de la iglesia. Abierto a miembros, visitantes y cualquier persona con el deseo de aprender. [Texto de ejemplo — ajusta con la información real del Instituto.]</p>
+    <p class="lead" data-field="instituto.descripcion">Un espacio para profundizar en la Palabra de Dios, formar carácter cristiano y desarrollar liderazgo al servicio de la iglesia. Abierto a miembros, visitantes y cualquier persona con el deseo de aprender. [Texto de ejemplo — ajusta con la información real del Instituto.]</p>
     <div class="hero-actions">
       <a href="registro.html" class="btn btn--light"><span>Inscribirme como estudiante</span></a>
     </div>
@@ -85,11 +85,11 @@
         <span class="section-eyebrow">Información general</span>
         <h2>Horarios y modalidad</h2>
         <table class="schedule-table" style="margin-top:20px;">
-          <tr><th>Modalidad</th><td>Presencial [ajustar]</td></tr>
-          <tr><th>Días</th><td>[Ej. Sábados]</td></tr>
-          <tr><th>Horario</th><td>[Ej. 9:00 AM – 12:00 PM]</td></tr>
-          <tr><th>Duración</th><td>[Ej. 2 años / 4 niveles]</td></tr>
-          <tr><th>Requisitos</th><td>[Ej. Ser miembro o visitante frecuente]</td></tr>
+          <tr><th>Modalidad</th><td data-field="instituto.modalidad">Presencial [ajustar]</td></tr>
+          <tr><th>Días</th><td data-field="instituto.dias">[Ej. Sábados]</td></tr>
+          <tr><th>Horario</th><td data-field="instituto.horario">[Ej. 9:00 AM – 12:00 PM]</td></tr>
+          <tr><th>Duración</th><td data-field="instituto.duracion">[Ej. 2 años / 4 niveles]</td></tr>
+          <tr><th>Requisitos</th><td data-field="instituto.requisitos">[Ej. Ser miembro o visitante frecuente]</td></tr>
         </table>
       </div>
       <div class="placeholder-photo">Foto de clases del Instituto Bíblico<br>(sustituir)</div>
@@ -133,9 +133,9 @@
       <div>
         <h4>Visítanos</h4>
         <ul>
-          <li>[Dirección de la iglesia — Puebla, Pue.]</li>
-          <li>[Teléfono / WhatsApp]</li>
-          <li>[correo@vidaabundantepuebla.org]</li>
+          <li data-field="general.direccion">[Dirección de la iglesia — Puebla, Pue.]</li>
+          <li data-field="general.telefono">[Teléfono / WhatsApp]</li>
+          <li data-field="general.correo">[correo@vidaabundantepuebla.org]</li>
         </ul>
       </div>
     </div>
@@ -146,5 +146,6 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/content-loader.js"></script>
 </body>
 </html>
