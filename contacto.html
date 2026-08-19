@@ -82,15 +82,15 @@
       <div>
         <div class="card" style="margin-bottom:20px;">
           <h3>📍 Dirección</h3>
-          <p>[Calle y número, Colonia]<br>Puebla, Puebla, México<br>[Código Postal]</p>
+          <p data-field="general.direccion">[Calle y número, Colonia], Puebla, Puebla, México, [Código Postal]</p>
         </div>
         <div class="card" style="margin-bottom:20px;">
           <h3>📞 Teléfono / WhatsApp</h3>
-          <p>[+52 222 000 0000]</p>
+          <p data-field="general.telefono">[+52 222 000 0000]</p>
         </div>
         <div class="card" style="margin-bottom:20px;">
           <h3>✉️ Correo electrónico</h3>
-          <p>[correo@vidaabundantepuebla.org]</p>
+          <p data-field="general.correo">[correo@vidaabundantepuebla.org]</p>
         </div>
         <div class="placeholder-photo">Mapa de ubicación<br>(inserta aquí un iframe de Google Maps)</div>
       </div>
@@ -126,9 +126,9 @@
       <div>
         <h4>Visítanos</h4>
         <ul>
-          <li>[Dirección de la iglesia — Puebla, Pue.]</li>
-          <li>[Teléfono / WhatsApp]</li>
-          <li>[correo@vidaabundantepuebla.org]</li>
+          <li data-field="general.direccion">[Dirección de la iglesia — Puebla, Pue.]</li>
+          <li data-field="general.telefono">[Teléfono / WhatsApp]</li>
+          <li data-field="general.correo">[correo@vidaabundantepuebla.org]</li>
         </ul>
       </div>
     </div>
@@ -139,5 +139,6 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/content-loader.js"></script>
 </body>
 </html>
