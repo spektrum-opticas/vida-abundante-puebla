@@ -52,11 +52,11 @@
       <div class="card">
         <div class="card-icon">🏦</div>
         <h3>Transferencia bancaria</h3>
-        <p><strong>Banco:</strong> [Nombre del banco]<br>
-        <strong>Titular:</strong> [Nombre de la asociación religiosa / iglesia]<br>
-        <strong>CLABE:</strong> [000000000000000000]<br>
-        <strong>Cuenta:</strong> [Número de cuenta]</p>
-        <p class="hint">[Sustituye estos datos con la información bancaria real de la iglesia.]</p>
+        <p><strong>Banco:</strong> <span data-field="donaciones.banco">[Nombre del banco]</span><br>
+        <strong>Titular:</strong> <span data-field="donaciones.titular">[Nombre de la asociación religiosa / iglesia]</span><br>
+        <strong>CLABE:</strong> <span data-field="donaciones.clabe">[000000000000000000]</span><br>
+        <strong>Cuenta:</strong> <span data-field="donaciones.cuenta">[Número de cuenta]</span></p>
+        <p class="hint" data-field="donaciones.notas">[Sustituye estos datos con la información bancaria real de la iglesia.]</p>
       </div>
       <div class="card">
         <div class="card-icon">📍</div>
@@ -100,9 +100,9 @@
       <div>
         <h4>Visítanos</h4>
         <ul>
-          <li>[Dirección de la iglesia — Puebla, Pue.]</li>
-          <li>[Teléfono / WhatsApp]</li>
-          <li>[correo@vidaabundantepuebla.org]</li>
+          <li data-field="general.direccion">[Dirección de la iglesia — Puebla, Pue.]</li>
+          <li data-field="general.telefono">[Teléfono / WhatsApp]</li>
+          <li data-field="general.correo">[correo@vidaabundantepuebla.org]</li>
         </ul>
       </div>
     </div>
@@ -113,5 +113,6 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/content-loader.js"></script>
 </body>
 </html>
