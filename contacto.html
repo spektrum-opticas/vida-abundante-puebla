@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | Vida Abundante de Puebla</title>
+<meta name="description" content="Ponte en contacto con Vida Abundante de Puebla. Dirección, teléfono y formulario de contacto.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/img/logo.png" alt="Logo Vida Abundante de Puebla">
+        <span>Vida Abundante<br><small>Iglesia Cristiana · Puebla</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="ministerios.html">Ministerios</a></li>
+        <li><a href="instituto-biblico.html">Instituto Bíblico</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="sermones.html">Prédicas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li class="nav-links-extra"><a href="donaciones.html">Ofrendar</a></li>
+        <li class="nav-links-extra"><a href="registro.html">Regístrate</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="donaciones.html" class="btn btn--outline"><span>Ofrendar</span></a>
+        <a href="registro.html" class="btn btn--primary"><span>Regístrate</span></a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section" style="padding-top:56px;">
+  <div class="container section-header">
+    <span class="section-eyebrow">Contacto</span>
+    <h1>Nos encantaría saber de ti</h1>
+    <p>Escríbenos y con gusto te responderemos. [Sustituye los datos de contacto con la información real de la iglesia.]</p>
+  </div>
+
+  <div class="container">
+    <div class="grid grid--2">
+      <div class="form-panel">
+        <div class="alert alert--success">¡Gracias! Tu mensaje fue enviado correctamente. Te responderemos pronto.</div>
+        <div class="alert alert--error"></div>
+        <form data-ajax-form novalidate action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
+          <div class="form-row">
+            <label for="c-nombre">Nombre completo *</label>
+            <input type="text" id="c-nombre" name="Nombre" required>
+            <div class="form-error-msg">Escribe tu nombre.</div>
+          </div>
+          <div class="form-row">
+            <label for="c-email">Correo electrónico *</label>
+            <input type="email" id="c-email" name="Correo electrónico" required>
+            <div class="form-error-msg">Escribe un correo electrónico válido.</div>
+          </div>
+          <div class="form-row">
+            <label for="c-telefono">Teléfono</label>
+            <input type="tel" id="c-telefono" name="Teléfono">
+          </div>
+          <div class="form-row">
+            <label for="c-mensaje">Mensaje *</label>
+            <textarea id="c-mensaje" name="Mensaje" rows="5" required></textarea>
+            <div class="form-error-msg">Escribe tu mensaje.</div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block"><span>Enviar mensaje</span></button>
+        </form>
+        <div class="setup-note">
+          <strong>Para el administrador del sitio:</strong> reemplaza <code>TU_ID_DE_FORMSPREE</code> en el código con tu ID real de Formspree (ver <code>instrucciones.txt</code>) para que estos mensajes te lleguen por correo.
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom:20px;">
+          <h3>📍 Dirección</h3>
+          <p>[Calle y número, Colonia]<br>Puebla, Puebla, México<br>[Código Postal]</p>
+        </div>
+        <div class="card" style="margin-bottom:20px;">
+          <h3>📞 Teléfono / WhatsApp</h3>
+          <p>[+52 222 000 0000]</p>
+        </div>
+        <div class="card" style="margin-bottom:20px;">
+          <h3>✉️ Correo electrónico</h3>
+          <p>[correo@vidaabundantepuebla.org]</p>
+        </div>
+        <div class="placeholder-photo">Mapa de ubicación<br>(inserta aquí un iframe de Google Maps)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="Logo Vida Abundante" style="height:56px;margin-bottom:14px;border-radius:50%;background:#FFF9F0;padding:4px;">
+        <p>Una comunidad cristiana evangélica en Puebla dedicada a compartir el amor de Cristo, formar discípulos y servir a nuestra ciudad.</p>
+      </div>
+      <div>
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="ministerios.html">Ministerios</a></li>
+          <li><a href="instituto-biblico.html">Instituto Bíblico</a></li>
+          <li><a href="sermones.html">Prédicas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Comunidad</h4>
+        <ul>
+          <li><a href="eventos.html">Eventos</a></li>
+          <li><a href="registro.html">Regístrate</a></li>
+          <li><a href="donaciones.html">Ofrendar</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visítanos</h4>
+        <ul>
+          <li>[Dirección de la iglesia — Puebla, Pue.]</li>
+          <li>[Teléfono / WhatsApp]</li>
+          <li>[correo@vidaabundantepuebla.org]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span data-current-year></span> Vida Abundante de Puebla — Iglesia Cristiana Evangélica. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

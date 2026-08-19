@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regístrate | Vida Abundante de Puebla</title>
+<meta name="description" content="Regístrate como miembro, visitante o estudiante del Instituto Bíblico de Vida Abundante de Puebla.">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/img/logo.png" alt="Logo Vida Abundante de Puebla">
+        <span>Vida Abundante<br><small>Iglesia Cristiana · Puebla</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="ministerios.html">Ministerios</a></li>
+        <li><a href="instituto-biblico.html">Instituto Bíblico</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="sermones.html">Prédicas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li class="nav-links-extra"><a href="donaciones.html">Ofrendar</a></li>
+        <li class="nav-links-extra"><a href="registro.html">Regístrate</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="donaciones.html" class="btn btn--outline"><span>Ofrendar</span></a>
+        <a href="registro.html" class="btn btn--primary"><span>Regístrate</span></a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="section" style="padding-top:56px;">
+  <div class="container section-header">
+    <span class="section-eyebrow">Área de registro</span>
+    <h1>Regístrate en Vida Abundante de Puebla</h1>
+    <p>Elige la opción que mejor te describe. Puedes hacer una alta rápida solo con tu correo electrónico, o llenar el formulario completo con tus datos.</p>
+  </div>
+
+  <div class="container" style="max-width:820px;">
+
+    <div class="tabs" data-tab-group="registro">
+      <button type="button" class="tab-btn active" data-tab-target="miembros">Soy miembro</button>
+      <button type="button" class="tab-btn" data-tab-target="visitantes">Soy visitante</button>
+      <button type="button" class="tab-btn" data-tab-target="estudiantes">Soy estudiante (Instituto Bíblico)</button>
+    </div>
+
+    <!-- ===================== MIEMBROS ===================== -->
+    <div class="tab-panel active" data-tab-panel="registro" data-tab-id="miembros">
+      <div class="form-panel">
+        <h3>Registro de Miembros</h3>
+        <p class="hint" style="margin-bottom:20px;">Si ya formas parte de nuestra familia, regístrate aquí para mantenerte al tanto de noticias, eventos y ministerios.</p>
+
+        <div class="reg-mode-toggle" data-mode-group="miembros">
+          <button type="button" class="reg-mode-btn active" data-mode-target="miembros-rapido">Alta rápida (solo correo)</button>
+          <button type="button" class="reg-mode-btn" data-mode-target="miembros-completo">Alta completa</button>
+        </div>
+
+        <!-- Alta rápida -->
+        <div data-mode-panel="miembros-rapido" style="display:block;">
+          <div class="alert alert--success">¡Gracias por registrarte! Muy pronto recibirás noticias de la iglesia.</div>
+          <div class="alert alert--error"></div>
+          <form data-ajax-form novalidate action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
+            <input type="hidden" name="Tipo de usuario" value="Miembro">
+            <input type="hidden" name="Tipo de registro" value="Alta rápida (solo correo)">
+            <input type="hidden" name="_subject" value="Nuevo registro rápido: Miembro — Vida Abundante Puebla">
+            <div class="form-row">
+              <label for="m-email-rapido">Correo electrónico *</label>
+              <input type="email" id="m-email-rapido" name="Correo electrónico" required>
+              <div class="form-error-msg">Escribe un correo electrónico válido.</div>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block"><span>Registrarme con mi correo</span></button>
+          </form>
+        </div>
+
+        <!-- Alta completa -->
+        <div data-mode-panel="miembros-completo" style="display:none;">
+          <div class="alert alert--success">¡Gracias por registrarte! Muy pronto recibirás noticias de la iglesia.</div>
+          <div class="alert alert--error"></div>
+          <form data-ajax-form novalidate action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
+            <input type="hidden" name="Tipo de usuario" value="Miembro">
+            <input type="hidden" name="Tipo de registro" value="Alta completa">
+            <input type="hidden" name="_subject" value="Nuevo registro completo: Miembro — Vida Abundante Puebla">
+            <div class="form-row">
+              <label for="m-nombre">Nombre completo *</label>
+              <input type="text" id="m-nombre" name="Nombre completo" required>
+              <div class="form-error-msg">Escribe tu nombre completo.</div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="m-telefono">Teléfono *</label>
+                <input type="tel" id="m-telefono" name="Teléfono" required>
+                <div class="form-error-msg">Escribe tu teléfono.</div>
+              </div>
+              <div class="form-row">
+                <label for="m-email">Correo electrónico *</label>
+                <input type="email" id="m-email" name="Correo electrónico" required>
+                <div class="form-error-msg">Escribe un correo electrónico válido.</div>
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="m-iglesia">Iglesia de origen</label>
+                <input type="text" id="m-iglesia" name="Iglesia de origen" placeholder="Ej. Vida Abundante de Puebla">
+              </div>
+              <div class="form-row">
+                <label for="m-cargo">Cargo en su iglesia</label>
+                <input type="text" id="m-cargo" name="Cargo en su iglesia" placeholder="Ej. Líder de ministerio, miembro, etc.">
+              </div>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block"><span>Enviar registro</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== VISITANTES ===================== -->
+    <div class="tab-panel" data-tab-panel="registro" data-tab-id="visitantes">
+      <div class="form-panel">
+        <h3>Registro de Visitantes</h3>
+        <p class="hint" style="margin-bottom:20px;">¡Qué alegría que nos visites! Regístrate para que nuestro equipo de bienvenida se ponga en contacto contigo.</p>
+
+        <div class="reg-mode-toggle" data-mode-group="visitantes">
+          <button type="button" class="reg-mode-btn active" data-mode-target="visitantes-rapido">Alta rápida (solo correo)</button>
+          <button type="button" class="reg-mode-btn" data-mode-target="visitantes-completo">Alta completa</button>
+        </div>
+
+        <!-- Alta rápida -->
+        <div data-mode-panel="visitantes-rapido" style="display:block;">
+          <div class="alert alert--success">¡Gracias por registrarte! Esperamos verte pronto.</div>
+          <div class="alert alert--error"></div>
+          <form data-ajax-form novalidate action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
+            <input type="hidden" name="Tipo de usuario" value="Visitante">
+            <input type="hidden" name="Tipo de registro" value="Alta rápida (solo correo)">
+            <input type="hidden" name="_subject" value="Nuevo registro rápido: Visitante — Vida Abundante Puebla">
+            <div class="form-row">
+              <label for="v-email-rapido">Correo electrónico *</label>
+              <input type="email" id="v-email-rapido" name="Correo electrónico" required>
+              <div class="form-error-msg">Escribe un correo electrónico válido.</div>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block"><span>Registrarme con mi correo</span></button>
+          </form>
+        </div>
+
+        <!-- Alta completa -->
+        <div data-mode-panel="visitantes-completo" style="display:none;">
+          <div class="alert alert--success">¡Gracias por registrarte! Esperamos verte pronto.</div>
+          <div class="alert alert--error"></div>
+          <form data-ajax-form novalidate action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
+            <input type="hidden" name="Tipo de usuario" value="Visitante">
+            <input type="hidden" name="Tipo de registro" value="Alta completa">
+            <input type="hidden" name="_subject" value="Nuevo registro completo: Visitante — Vida Abundante Puebla">
+            <div class="form-row">
+              <label for="v-nombre">Nombre completo *</label>
+              <input type="text" id="v-nombre" name="Nombre completo" required>
+              <div class="form-error-msg">Escribe tu nombre completo.</div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="v-telefono">Teléfono *</label>
+                <input type="tel" id="v-telefono" name="Teléfono" required>
+                <div class="form-error-msg">Escribe tu teléfono.</div>
+              </div>
+              <div class="form-row">
+                <label for="v-email">Correo electrónico *</label>
+                <input type="email" id="v-email" name="Correo electrónico" required>
+                <div class="form-error-msg">Escribe un correo electrónico válido.</div>
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="v-iglesia">Iglesia de origen</label>
+                <input type="text" id="v-iglesia" name="Iglesia de origen" placeholder="Si asistes a otra iglesia">
+              </div>
+              <div class="form-row">
+                <label for="v-cargo">Cargo en su iglesia</label>
+                <input type="text" id="v-cargo" name="Cargo en su iglesia" placeholder="Opcional">
+              </div>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block"><span>Enviar registro</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== ESTUDIANTES ===================== -->
+    <div class="tab-panel" data-tab-panel="registro" data-tab-id="estudiantes">
+      <div class="form-panel">
+        <h3>Registro de Estudiantes — Instituto Bíblico</h3>
+        <p class="hint" style="margin-bottom:20px;">Inscríbete al Instituto Bíblico Vida Abundante y comienza tu formación.</p>
+
+        <div class="reg-mode-toggle" data-mode-group="estudiantes">
+          <button type="button" class="reg-mode-btn active" data-mode-target="estudiantes-rapido">Alta rápida (solo correo)</button>
+          <button type="button" class="reg-mode-btn" data-mode-target="estudiantes-completo">Alta completa</button>
+        </div>
+
+        <!-- Alta rápida -->
+        <div data-mode-panel="estudiantes-rapido" style="display:block;">
+          <div class="alert alert--success">¡Gracias por registrarte! Te contactaremos con los detalles del Instituto Bíblico.</div>
+          <div class="alert alert--error"></div>
+          <form data-ajax-form novalidate action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
+            <input type="hidden" name="Tipo de usuario" value="Estudiante - Instituto Bíblico">
+            <input type="hidden" name="Tipo de registro" value="Alta rápida (solo correo)">
+            <input type="hidden" name="_subject" value="Nuevo registro rápido: Estudiante Instituto Bíblico — Vida Abundante Puebla">
+            <div class="form-row">
+              <label for="e-email-rapido">Correo electrónico *</label>
+              <input type="email" id="e-email-rapido" name="Correo electrónico" required>
+              <div class="form-error-msg">Escribe un correo electrónico válido.</div>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block"><span>Registrarme con mi correo</span></button>
+          </form>
+        </div>
+
+        <!-- Alta completa -->
+        <div data-mode-panel="estudiantes-completo" style="display:none;">
+          <div class="alert alert--success">¡Gracias por registrarte! Te contactaremos con los detalles del Instituto Bíblico.</div>
+          <div class="alert alert--error"></div>
+          <form data-ajax-form novalidate action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
+            <input type="hidden" name="Tipo de usuario" value="Estudiante - Instituto Bíblico">
+            <input type="hidden" name="Tipo de registro" value="Alta completa">
+            <input type="hidden" name="_subject" value="Nuevo registro completo: Estudiante Instituto Bíblico — Vida Abundante Puebla">
+            <div class="form-row">
+              <label for="e-nombre">Nombre completo *</label>
+              <input type="text" id="e-nombre" name="Nombre completo" required>
+              <div class="form-error-msg">Escribe tu nombre completo.</div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="e-telefono">Teléfono *</label>
+                <input type="tel" id="e-telefono" name="Teléfono" required>
+                <div class="form-error-msg">Escribe tu teléfono.</div>
+              </div>
+              <div class="form-row">
+                <label for="e-email">Correo electrónico *</label>
+                <input type="email" id="e-email" name="Correo electrónico" required>
+                <div class="form-error-msg">Escribe un correo electrónico válido.</div>
+              </div>
+            </div>
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="e-iglesia">Iglesia de origen *</label>
+                <input type="text" id="e-iglesia" name="Iglesia de origen" required>
+                <div class="form-error-msg">Escribe tu iglesia de origen.</div>
+              </div>
+              <div class="form-row">
+                <label for="e-cargo">Cargo en su iglesia *</label>
+                <input type="text" id="e-cargo" name="Cargo en su iglesia" required placeholder="Ej. Miembro, líder, diácono...">
+                <div class="form-error-msg">Escribe tu cargo en tu iglesia.</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block"><span>Enviar inscripción</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="setup-note">
+      <strong>Para el administrador del sitio:</strong> esta sección de registro ya está lista para funcionar sin programar un backend. Solo falta conectar un ID de Formspree real (gratuito) en el código — reemplaza <code>TU_ID_DE_FORMSPREE</code> en las 6 instancias de esta página (y en <code>contacto.html</code>) por tu propio endpoint. Consulta el archivo <code>instrucciones.txt</code> incluido para el paso a paso. Cuando alguien se registre, recibirás un correo con sus datos.
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="Logo Vida Abundante" style="height:56px;margin-bottom:14px;border-radius:50%;background:#FFF9F0;padding:4px;">
+        <p>Una comunidad cristiana evangélica en Puebla dedicada a compartir el amor de Cristo, formar discípulos y servir a nuestra ciudad.</p>
+      </div>
+      <div>
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="ministerios.html">Ministerios</a></li>
+          <li><a href="instituto-biblico.html">Instituto Bíblico</a></li>
+          <li><a href="sermones.html">Prédicas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Comunidad</h4>
+        <ul>
+          <li><a href="eventos.html">Eventos</a></li>
+          <li><a href="registro.html">Regístrate</a></li>
+          <li><a href="donaciones.html">Ofrendar</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visítanos</h4>
+        <ul>
+          <li>[Dirección de la iglesia — Puebla, Pue.]</li>
+          <li>[Teléfono / WhatsApp]</li>
+          <li>[correo@vidaabundantepuebla.org]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span data-current-year></span> Vida Abundante de Puebla — Iglesia Cristiana Evangélica. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

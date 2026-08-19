@@ -1,0 +1,99 @@
+VIDA ABUNDANTE DE PUEBLA — SITIO WEB
+=====================================
+Instrucciones rápidas para poner en marcha tu página.
+
+
+1) ESTRUCTURA DEL PROYECTO
+---------------------------
+index.html              -> Inicio
+nosotros.html            -> Nosotros (historia, misión, visión, liderazgo)
+ministerios.html         -> Ministerios
+instituto-biblico.html   -> Instituto Bíblico
+eventos.html             -> Horarios y eventos
+sermones.html            -> Prédicas / mensajes
+donaciones.html          -> Diezmos y ofrendas
+contacto.html            -> Contacto (con formulario)
+registro.html            -> Registro de Miembros / Visitantes / Estudiantes
+assets/css/style.css     -> Todos los estilos y colores del sitio
+assets/js/main.js        -> Menú móvil, pestañas y envío de formularios
+assets/img/logo.png      -> Tu logo (ya integrado)
+assets/img/favicon.png   -> Ícono de pestaña del navegador
+
+
+2) CÓMO REEMPLAZAR EL CONTENIDO DE EJEMPLO
+--------------------------------------------
+Todo el texto marcado como "[texto de ejemplo]" o entre corchetes [ ] debe
+reemplazarse con tu información real: historia de la iglesia, horarios,
+dirección, teléfono, nombres de pastores, fotos, etc.
+
+Puedes abrir cualquier archivo .html con un editor de texto (Bloc de notas,
+VS Code, etc.) y buscar el texto que quieras cambiar.
+
+Para cambiar fotos: sustituye los recuadros con textura a rayas
+("Foto de... (sustituir)") agregando tus propias imágenes dentro de
+assets/img/ y usando una etiqueta <img src="assets/img/tu-foto.jpg">.
+
+
+3) CÓMO ACTIVAR LOS FORMULARIOS (Registro y Contacto)
+-------------------------------------------------------
+Los formularios de "Regístrate" y "Contacto" ya están construidos y
+validados, pero necesitan un ID de Formspree para poder ENVIARTE los
+datos por correo electrónico (no requiere programar nada).
+
+Pasos:
+  a) Entra a https://formspree.io y crea una cuenta gratuita.
+  b) Crea un nuevo formulario ("New Form") y verifica el correo al que
+     quieres que lleguen los registros.
+  c) Formspree te dará una URL parecida a:
+       https://formspree.io/f/abcd1234
+  d) Abre estos archivos y reemplaza TODAS las apariciones de
+       https://formspree.io/f/TU_ID_DE_FORMSPREE
+     por tu URL real:
+       - registro.html   (6 formularios: miembros, visitantes y
+                           estudiantes, cada uno con alta rápida y
+                           alta completa)
+       - contacto.html    (1 formulario)
+  e) Guarda los archivos y vuelve a probar el registro: recibirás un
+     correo cada vez que alguien se registre o escriba un mensaje.
+
+El plan gratuito de Formspree permite hasta 50 envíos al mes, suficiente
+para empezar. Si crecen los registros, puedes actualizar a un plan pago
+directamente en Formspree.
+
+Nota: si más adelante quieres una base de datos real, un panel de
+administración con inicio de sesión y contraseñas para cada tipo de
+usuario (miembros / visitantes / estudiantes), eso requiere un backend
+adicional (por ejemplo Firebase, Supabase o un desarrollo a la medida).
+El sitio actual está preparado para crecer hacia esa dirección cuando
+lo necesites.
+
+
+4) CÓMO PUBLICAR EL SITIO EN INTERNET
+----------------------------------------
+Este sitio es 100% estático (HTML, CSS y JS), así que puedes publicarlo
+gratis en cualquiera de estas opciones:
+
+  - Netlify (netlify.com): arrastra la carpeta completa a "Deploy" y
+    listo.
+  - Vercel (vercel.com): similar a Netlify, muy sencillo.
+  - GitHub Pages: sube la carpeta a un repositorio de GitHub y activa
+    "Pages" en la configuración.
+  - Hosting tradicional: sube todos los archivos por FTP a tu proveedor
+    de hosting, dentro de la carpeta pública (por ejemplo public_html).
+
+En cualquiera de los casos, asegúrate de subir TODA la carpeta,
+incluyendo las subcarpetas "assets".
+
+
+5) SIGUIENTE NIVEL (opcional, más adelante)
+-----------------------------------------------
+  - Mapa: en contacto.html puedes insertar un iframe real de Google Maps
+    con la ubicación exacta de la iglesia.
+  - Video de prédicas: en sermones.html puedes incrustar tu canal de
+    YouTube o Facebook.
+  - Calendario: en eventos.html puedes incrustar un Google Calendar
+    público.
+  - Pagos en línea: en donaciones.html puedes agregar un botón de
+    PayPal, Mercado Pago o Clip para ofrendas en línea.
+
+Cualquier duda, con gusto seguimos ajustando el sitio contigo.
