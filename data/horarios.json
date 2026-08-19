@@ -1,0 +1,7 @@
+[
+  { "dia": "Domingo", "actividad": "Culto General", "hora": "10:00 AM" },
+  { "dia": "Domingo", "actividad": "Culto de Jóvenes", "hora": "5:00 PM" },
+  { "dia": "Miércoles", "actividad": "Estudio Bíblico", "hora": "7:00 PM" },
+  { "dia": "Viernes", "actividad": "Reunión de Oración", "hora": "7:00 PM" },
+  { "dia": "Sábado", "actividad": "Instituto Bíblico", "hora": "9:00 AM – 12:00 PM" }
+]
