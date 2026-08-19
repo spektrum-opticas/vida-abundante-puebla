@@ -1,0 +1,10 @@
+[
+  { "nombre": "Ministerio Infantil", "categoria": "Niños", "descripcion": "Clases bíblicas, juegos y actividades para que los niños conozcan el amor de Dios desde pequeños." },
+  { "nombre": "Jóvenes en Vida", "categoria": "Jóvenes", "descripcion": "Un espacio de fe, amistad y propósito para adolescentes y jóvenes adultos." },
+  { "nombre": "Equipo de Alabanza", "categoria": "Alabanza y Adoración", "descripcion": "Músicos y cantantes que preparan el corazón de la congregación para adorar a Dios." },
+  { "nombre": "Mujeres en la Cima", "categoria": "Mujeres", "descripcion": "Un espacio de crecimiento espiritual, comunión y apoyo entre mujeres de la iglesia." },
+  { "nombre": "Varones de Fe", "categoria": "Hombres", "descripcion": "Reuniones y estudios enfocados en el crecimiento espiritual y el liderazgo de los hombres." },
+  { "nombre": "Evangelismo y Misiones", "categoria": "Evangelismo", "descripcion": "Compartiendo las buenas nuevas de Jesucristo dentro y fuera de nuestra ciudad." },
+  { "nombre": "Matrimonios", "categoria": "Familias", "descripcion": "Fortaleciendo hogares a través de la Palabra de Dios y la comunidad." },
+  { "nombre": "Intercesión", "categoria": "Oración", "descripcion": "Un equipo dedicado a orar por la iglesia, la ciudad y cada necesidad de la congregación." }
+]
