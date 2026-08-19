@@ -1,5 +1,17 @@
 [
-  { "fecha": "[Fecha]", "nombre": "[Nombre del evento]", "descripcion": "[Breve descripción del evento — reemplaza con información real.]" },
-  { "fecha": "[Fecha]", "nombre": "[Nombre del evento]", "descripcion": "[Breve descripción del evento — reemplaza con información real.]" },
-  { "fecha": "[Fecha]", "nombre": "[Nombre del evento]", "descripcion": "[Breve descripción del evento — reemplaza con información real.]" }
+  {
+    "fecha": "Del 23 al 25 de Octubre 2026",
+    "nombre": "¡Gran Campaña Evangelística: \"Esperanza y Vida 2026\"! 🌟",
+    "descripcion": "📅 Detalles del Evento\nFechas: Del 23 al 25 de Octubre, 2026.\nHora: 4:00 pm a 7 pm.\nLugar: Parque Centenario Laguna de Chapulco.\nDirección: 12 Sur S/N, Infonavit San Jorge, 72587 Heroica Puebla de Zaragoza, Puebla.\nEntrada: Completamente gratuita.✨ \n¿Qué puedes esperar?\nMensajes de fe: \nReflexiones profundas basadas en la Palabra de Dios a cargo del Evangelista / Pastor [Nombre del Invitado/Orador].\nMúsica en vivo: Tiempo de adoración con el grupo de alabanza [Nombre del ministerio de música].\nOración por milagros: Tendremos un tiempo dedicado a orar por las familias, los enfermos y las peticiones especiales.\nAmbiente familiar: Un espacio seguro y amigable para personas de todas las edades.🤝 \n¡Prepara tu corazón y participa!\nOra: Intercede desde hoy por las vidas que serán alcanzadas y transformadas.\nInvita: Comparte esta publicación con un familiar, amigo, vecino o compañero de trabajo que necesite una palabra de aliento.\nAsiste: Ven con la convicción de que el Espíritu Santo hará algo extraordinario.\n\"Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación a todo aquel que cree...\" — Romanos 1:16\nPara más información, dudas escríbenos a nuestro correo vidaabundantedepuebla@gmail.com o envíanos un mensaje de WhatsApp al [Número de teléfono].¡Te esperamos con los brazos abiertos!"
+  },
+  {
+    "fecha": "[Fecha]",
+    "nombre": "[Nombre del evento]",
+    "descripcion": "[Breve descripción del evento — reemplaza con información real.]"
+  },
+  {
+    "fecha": "[Fecha]",
+    "nombre": "[Nombre del evento]",
+    "descripcion": "[Breve descripción del evento — reemplaza con información real.]"
+  }
 ]
