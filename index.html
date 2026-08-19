@@ -43,9 +43,9 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="hero-eyebrow">Bienvenido a casa</span>
-      <h1>Una familia que vive y comparte el amor de Cristo</h1>
-      <p class="lead">En Vida Abundante de Puebla creemos que hay lugar para ti tal como eres. Ven a adorar, crecer en la Palabra y servir junto a una comunidad que te acompaña en cada etapa de tu vida.</p>
+      <span class="hero-eyebrow" data-field="hero.eyebrow">Bienvenido a casa</span>
+      <h1 data-field="hero.titulo">Una familia que vive y comparte el amor de Cristo</h1>
+      <p class="lead" data-field="hero.texto">En Vida Abundante de Puebla creemos que hay lugar para ti tal como eres. Ven a adorar, crecer en la Palabra y servir junto a una comunidad que te acompaña en cada etapa de tu vida.</p>
       <div class="hero-actions">
         <a href="#horarios" class="btn btn--light"><span>Ver horarios de culto</span></a>
         <a href="registro.html" class="btn btn--outline" style="border-color:#FFF9F0;color:#FFF9F0;"><span>Soy nuevo, quiero registrarme</span></a>
@@ -54,16 +54,18 @@
     <div class="hero-card" id="horarios">
       <span class="badge">Próximos cultos</span>
       <h3>Esta semana</h3>
-      <div class="hero-schedule-item"><span class="day">Domingo · 10:00 AM</span><span>Culto General</span></div>
-      <div class="hero-schedule-item"><span class="day">Domingo · 5:00 PM</span><span>Culto de Jóvenes</span></div>
-      <div class="hero-schedule-item"><span class="day">Miércoles · 7:00 PM</span><span>Estudio Bíblico</span></div>
-      <div class="hero-schedule-item"><span class="day">Viernes · 7:00 PM</span><span>Reunión de Oración</span></div>
+      <div data-field-list="horarios-hero">
+        <div class="hero-schedule-item"><span class="day">Domingo · 10:00 AM</span><span>Culto General</span></div>
+        <div class="hero-schedule-item"><span class="day">Domingo · 5:00 PM</span><span>Culto de Jóvenes</span></div>
+        <div class="hero-schedule-item"><span class="day">Miércoles · 7:00 PM</span><span>Estudio Bíblico</span></div>
+        <div class="hero-schedule-item"><span class="day">Viernes · 7:00 PM</span><span>Reunión de Oración</span></div>
+      </div>
       <a href="eventos.html" class="btn btn--primary btn--block mt-lg"><span>Ver calendario completo</span></a>
     </div>
   </div>
 </section>
 
-<div class="verse-strip container-fluid">
+<div class="verse-strip container-fluid" data-field="hero.versiculo">
   "Yo he venido para que tengan vida, y para que la tengan en abundancia." — Juan 10:10
 </div>
 
@@ -179,9 +181,9 @@
       <div>
         <h4>Visítanos</h4>
         <ul>
-          <li>[Dirección de la iglesia — Puebla, Pue.]</li>
-          <li>[Teléfono / WhatsApp]</li>
-          <li>[correo@vidaabundantepuebla.org]</li>
+          <li data-field="general.direccion">[Dirección de la iglesia — Puebla, Pue.]</li>
+          <li data-field="general.telefono">[Teléfono / WhatsApp]</li>
+          <li data-field="general.correo">[correo@vidaabundantepuebla.org]</li>
         </ul>
       </div>
     </div>
@@ -192,5 +194,6 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/content-loader.js"></script>
 </body>
 </html>
