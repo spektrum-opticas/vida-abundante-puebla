@@ -1,0 +1,11 @@
+{
+  "historia": "Vida Abundante de Puebla nació con el deseo de compartir el amor de Cristo y ser una familia espiritual para quienes buscan a Dios. Desde nuestros inicios hemos crecido gracias a la fidelidad de Dios y al compromiso de cada miembro de esta comunidad. [Texto de ejemplo — agrega aquí el año de fundación, los fundadores y los hitos más importantes de la iglesia.]",
+  "mision": "Glorificar a Dios haciendo discípulos de Jesucristo, formando líderes y sirviendo a nuestra comunidad con amor genuino. [Texto de ejemplo.]",
+  "vision": "Ser una iglesia que impacta a Puebla y más allá, formando familias saludables, líderes íntegros y discípulos comprometidos con el Reino de Dios. [Texto de ejemplo.]",
+  "valores": "Amor, integridad, servicio, excelencia y fe. Vivimos estos valores en cada área de nuestra iglesia. [Texto de ejemplo.]",
+  "liderazgo": [
+    { "nombre": "[Nombre del Pastor]", "cargo": "Pastor principal", "bio": "[breve biografía de ejemplo]" },
+    { "nombre": "[Nombre]", "cargo": "[Cargo]", "bio": "[breve biografía de ejemplo]" },
+    { "nombre": "[Nombre]", "cargo": "[Cargo]", "bio": "[breve biografía de ejemplo]" }
+  ]
+}
