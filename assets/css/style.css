@@ -150,7 +150,7 @@ p { margin: 0 0 1em 0; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
+  padding: 8px 0;
 }
 
 .nav-brand {
@@ -164,14 +164,19 @@ p { margin: 0 0 1em 0; }
 }
 
 .nav-brand img {
-  height: 46px;
-  width: 46px;
+  height: 138px;
+  width: 138px;
+  flex-shrink: 0;
   object-fit: contain;
   border-radius: 50%;
   background: var(--color-cream);
   padding: 4px;
   border: 1px solid var(--color-border);
 }
+
+/* El logo ya incluye el nombre de la iglesia en el diseño, así que
+   ocultamos el texto duplicado ahora que el logo es grande. */
+.nav-brand span { display: none; }
 
 .nav-brand small {
   display: block;
@@ -625,8 +630,6 @@ p { margin: 0 0 1em 0; }
   .nav-links-extra a { text-align: center; font-weight: 800; }
   .nav-toggle { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; }
   .nav-cta { display: none; }
-  .nav-brand small { display: none; }
-  .nav-brand span { display: flex; align-items: center; }
   .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
   .form-grid-2 { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
