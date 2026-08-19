@@ -587,6 +587,8 @@ p { margin: 0 0 1em 0; }
 /* ---------- Utilidades ---------- */
 .text-center { text-align: center; }
 .mt-lg { margin-top: 40px; }
+.contents-wrap { display: contents; }
+
 .placeholder-photo {
   background: repeating-linear-gradient(45deg, var(--color-bg-alt), var(--color-bg-alt) 10px, var(--color-bg) 10px, var(--color-bg) 20px);
   border: 1.5px dashed var(--color-terracotta);
