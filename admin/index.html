@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel de administración | Vida Abundante de Puebla</title>
+<link rel="icon" href="../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  body{background:var(--color-bg);}
+  .admin-header{background:var(--color-wood-dark);color:#fff;padding:16px 0;}
+  .admin-header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .admin-header h1{color:#fff;font-size:1.2rem;margin:0;}
+  .admin-header .logo-row{display:flex;align-items:center;gap:12px;}
+  .admin-header img{height:44px;width:44px;border-radius:50%;background:#fff;padding:2px;}
+  .btn-logout{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff;padding:8px 16px;border-radius:8px;cursor:pointer;font-family:inherit;font-weight:700;}
+  .btn-logout:hover{background:rgba(255,255,255,.12);}
+  .admin-wrap{max-width:1100px;margin:0 auto;padding:32px 20px 80px;}
+  .login-box{max-width:400px;margin:80px auto;background:#fff;border-radius:16px;padding:36px;box-shadow:0 10px 30px rgba(0,0,0,.08);text-align:center;}
+  .login-box img{height:80px;margin-bottom:16px;}
+  .login-box input{width:100%;padding:12px 14px;border-radius:8px;border:1px solid #ddd;margin:14px 0;font-family:inherit;font-size:1rem;box-sizing:border-box;}
+  .login-box button{width:100%;}
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+  .tab-btn{background:#fff;border:1px solid #e2d5c3;color:var(--color-wood-dark);padding:9px 16px;border-radius:999px;cursor:pointer;font-family:inherit;font-weight:700;font-size:.88rem;}
+  .tab-btn.active{background:var(--color-terracotta);color:#fff;border-color:var(--color-terracotta);}
+  .panel{display:none;background:#fff;border-radius:14px;padding:28px;box-shadow:0 4px 16px rgba(0,0,0,.05);}
+  .panel.active{display:block;}
+  .panel h2{margin-top:0;}
+  .f-row{margin-bottom:18px;}
+  .f-row label{display:block;font-weight:700;margin-bottom:6px;color:var(--color-wood-dark);font-size:.92rem;}
+  .f-row input[type=text],.f-row textarea{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #ddd;font-family:inherit;font-size:.95rem;box-sizing:border-box;}
+  .f-row textarea{min-height:90px;resize:vertical;}
+  .repeater-item{border:1px solid #eee;border-radius:10px;padding:16px;margin-bottom:14px;position:relative;background:#FFFBF5;}
+  .repeater-item .remove-btn{position:absolute;top:10px;right:10px;background:#c0392b;color:#fff;border:none;border-radius:6px;width:26px;height:26px;cursor:pointer;font-weight:700;line-height:1;}
+  .add-btn{background:transparent;border:2px dashed var(--color-terracotta);color:var(--color-terracotta);padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:700;width:100%;font-family:inherit;}
+  .save-row{display:flex;align-items:center;gap:16px;margin-top:24px;}
+  .status-msg{font-weight:700;font-size:.9rem;}
+  .status-msg.ok{color:#2e7d32;}
+  .status-msg.err{color:#c0392b;}
+  .upload-box{background:#fff;border-radius:14px;padding:22px 28px;margin-bottom:24px;box-shadow:0 4px 16px rgba(0,0,0,.05);}
+  .upload-box code{background:#f4ece0;padding:2px 6px;border-radius:4px;word-break:break-all;}
+  .hidden{display:none !important;}
+  .loading-msg{text-align:center;padding:60px 20px;color:var(--color-text-soft);}
+</style>
+</head>
+<body>
+
+<div id="login-screen" class="hidden">
+  <div class="login-box">
+    <img src="../assets/img/logo.png" alt="Logo Vida Abundante de Puebla">
+    <h2>Panel de administración</h2>
+    <p>Ingresa la contraseña de administrador para editar el contenido del sitio.</p>
+    <form id="login-form">
+      <input type="password" id="login-password" placeholder="Contraseña" autocomplete="current-password" required>
+      <button type="submit" class="btn btn--primary"><span>Entrar</span></button>
+      <p id="login-error" class="status-msg err" style="margin-top:14px;"></p>
+    </form>
+  </div>
+</div>
+
+<div id="app-screen" class="hidden">
+  <header class="admin-header">
+    <div class="container">
+      <div class="logo-row">
+        <img src="../assets/img/logo.png" alt="Logo">
+        <h1>Panel de administración — Vida Abundante</h1>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <a href="../index.html" target="_blank" style="color:#fff;font-weight:700;font-size:.85rem;">Ver el sitio ↗</a>
+        <button class="btn-logout" id="logout-btn">Cerrar sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="admin-wrap">
+    <div class="upload-box">
+      <h3 style="margin-top:0;">Subir una imagen</h3>
+      <p style="color:var(--color-text-soft);font-size:.9rem;">Sube una foto para usarla en el sitio (por ejemplo en una página de eventos o ministerios en el futuro). Al subirla obtendrás una dirección (URL) que puedes copiar.</p>
+      <input type="file" id="image-input" accept="image/*">
+      <p id="upload-status" class="status-msg" style="margin-top:10px;"></p>
+      <p id="upload-result" style="display:none;margin-top:10px;">Dirección de la imagen: <code id="upload-url"></code></p>
+    </div>
+
+    <div class="tabs" id="tabs"></div>
+    <div id="panels"></div>
+  </div>
+</div>
+
+<div id="loading-screen" class="loading-msg">Cargando panel de administración…</div>
+
+<script>
+(function () {
+  var SECTIONS = [
+    {
+      key: 'general', path: 'data/general.json', title: 'General y Contacto', type: 'object',
+      fields: [
+        { name: 'direccion', label: 'Dirección', type: 'text' },
+        { name: 'telefono', label: 'Teléfono / WhatsApp', type: 'text' },
+        { name: 'correo', label: 'Correo electrónico', type: 'text' },
+        { name: 'facebook', label: 'Facebook (URL)', type: 'text' },
+        { name: 'instagram', label: 'Instagram (URL)', type: 'text' },
+        { name: 'youtube', label: 'YouTube (URL)', type: 'text' }
+      ]
+    },
+    {
+      key: 'hero', path: 'data/hero.json', title: 'Inicio (Portada)', type: 'object',
+      fields: [
+        { name: 'eyebrow', label: 'Texto pequeño superior', type: 'text' },
+        { name: 'titulo', label: 'Título principal', type: 'textarea' },
+        { name: 'texto', label: 'Texto de bienvenida', type: 'textarea' },
+        { name: 'versiculo', label: 'Versículo destacado', type: 'textarea' }
+      ]
+    },
+    {
+      key: 'nosotros', path: 'data/nosotros.json', title: 'Nosotros', type: 'object-with-list',
+      fields: [
+        { name: 'historia', label: 'Nuestra historia', type: 'textarea' },
+        { name: 'mision', label: 'Misión', type: 'textarea' },
+        { name: 'vision', label: 'Visión', type: 'textarea' },
+        { name: 'valores', label: 'Valores', type: 'textarea' }
+      ],
+      listKey: 'liderazgo', listLabel: 'Liderazgo',
+      itemFields: [
+        { name: 'nombre', label: 'Nombre' },
+        { name: 'cargo', label: 'Cargo' },
+        { name: 'bio', label: 'Biografía breve', type: 'textarea' }
+      ]
+    },
+    {
+      key: 'horarios', path: 'data/horarios.json', title: 'Horarios', type: 'list',
+      itemFields: [
+        { name: 'dia', label: 'Día' },
+        { name: 'actividad', label: 'Actividad' },
+        { name: 'hora', label: 'Hora' }
+      ]
+    },
+    {
+      key: 'ministerios', path: 'data/ministerios.json', title: 'Ministerios', type: 'list',
+      itemFields: [
+        { name: 'nombre', label: 'Nombre' },
+        { name: 'categoria', label: 'Categoría' },
+        { name: 'descripcion', label: 'Descripción', type: 'textarea' }
+      ]
+    },
+    {
+      key: 'eventos', path: 'data/eventos.json', title: 'Eventos', type: 'list',
+      itemFields: [
+        { name: 'fecha', label: 'Fecha' },
+        { name: 'nombre', label: 'Nombre del evento' },
+        { name: 'descripcion', label: 'Descripción', type: 'textarea' }
+      ]
+    },
+    {
+      key: 'instituto', path: 'data/instituto.json', title: 'Instituto Bíblico', type: 'object',
+      fields: [
+        { name: 'descripcion', label: 'Descripción', type: 'textarea' },
+        { name: 'modalidad', label: 'Modalidad', type: 'text' },
+        { name: 'dias', label: 'Días', type: 'text' },
+        { name: 'horario', label: 'Horario', type: 'text' },
+        { name: 'duracion', label: 'Duración', type: 'text' },
+        { name: 'requisitos', label: 'Requisitos', type: 'text' }
+      ]
+    },
+    {
+      key: 'donaciones', path: 'data/donaciones.json', title: 'Ofrendar / Donaciones', type: 'object',
+      fields: [
+        { name: 'banco', label: 'Banco', type: 'text' },
+        { name: 'titular', label: 'Titular de la cuenta', type: 'text' },
+        { name: 'clabe', label: 'CLABE', type: 'text' },
+        { name: 'cuenta', label: 'Número de cuenta', type: 'text' },
+        { name: 'notas', label: 'Notas adicionales', type: 'textarea' }
+      ]
+    }
+  ];
+
+  var sectionData = {};
+
+  var loginScreen = document.getElementById('login-screen');
+  var appScreen = document.getElementById('app-screen');
+  var loadingScreen = document.getElementById('loading-screen');
+  var tabsEl = document.getElementById('tabs');
+  var panelsEl = document.getElementById('panels');
+
+  function esc(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function show(el) { el.classList.remove('hidden'); }
+  function hide(el) { el.classList.add('hidden'); }
+
+  async function checkSession() {
+    try {
+      var res = await fetch('/api/session', { cache: 'no-store' });
+      var json = await res.json();
+      return !!json.authenticated;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  async function fetchJSON(path) {
+    var res = await fetch('/' + path, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return res.json();
+  }
+
+  function fieldInput(field, value) {
+    var v = value == null ? '' : value;
+    if (field.type === 'textarea') {
+      return '<textarea data-name="' + esc(field.name) + '">' + esc(v) + '</textarea>';
+    }
+    return '<input type="text" data-name="' + esc(field.name) + '" value="' + esc(v) + '">';
+  }
+
+  function renderRepeaterItem(itemFields, item) {
+    item = item || {};
+    var html = '<div class="repeater-item"><button type="button" class="remove-btn" title="Eliminar">×</button>';
+    itemFields.forEach(function (f) {
+      html += '<div class="f-row"><label>' + esc(f.label) + '</label>' + fieldInput(f, item[f.name]) + '</div>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  function buildRepeater(container, itemFields, items) {
+    container.innerHTML = '';
+    (items || []).forEach(function (item) {
+      var wrap = document.createElement('div');
+      wrap.innerHTML = renderRepeaterItem(itemFields, item);
+      container.appendChild(wrap.firstChild);
+    });
+    bindRepeaterRemove(container);
+  }
+
+  function bindRepeaterRemove(container) {
+    container.querySelectorAll('.remove-btn').forEach(function (btn) {
+      btn.onclick = function () { btn.closest('.repeater-item').remove(); };
+    });
+  }
+
+  function readRepeaterValues(container, itemFields) {
+    var items = [];
+    container.querySelectorAll('.repeater-item').forEach(function (row) {
+      var obj = {};
+      itemFields.forEach(function (f) {
+        var input = row.querySelector('[data-name="' + f.name + '"]');
+        obj[f.name] = input ? input.value : '';
+      });
+      items.push(obj);
+    });
+    return items;
+  }
+
+  function buildPanel(section) {
+    var panel = document.createElement('div');
+    panel.className = 'panel';
+    panel.id = 'panel-' + section.key;
+
+    var html = '<h2>' + esc(section.title) + '</h2>';
+
+    if (section.type === 'object' || section.type === 'object-with-list') {
+      section.fields.forEach(function (f) {
+        html += '<div class="f-row"><label>' + esc(f.label) + '</label>' + fieldInput(f, null) + '</div>';
+      });
+    }
+
+    if (section.type === 'list') {
+      html += '<div class="repeater-container" data-repeater="main"></div>';
+      html += '<button type="button" class="add-btn" data-add="main">+ Agregar</button>';
+    }
+
+    if (section.type === 'object-with-list') {
+      html += '<h3 style="margin-top:32px;">' + esc(section.listLabel) + '</h3>';
+      html += '<div class="repeater-container" data-repeater="list"></div>';
+      html += '<button type="button" class="add-btn" data-add="list">+ Agregar</button>';
+    }
+
+    html += '<div class="save-row"><button type="button" class="btn btn--primary save-btn"><span>Guardar cambios</span></button><span class="status-msg"></span></div>';
+
+    panel.innerHTML = html;
+    return panel;
+  }
+
+  function fillObjectFields(panel, fields, data) {
+    fields.forEach(function (f) {
+      var input = panel.querySelector('[data-name="' + f.name + '"]');
+      if (input) input.value = (data && data[f.name] != null) ? data[f.name] : '';
+    });
+  }
+
+  async function loadSection(section) {
+    var data = await fetchJSON(section.path);
+    sectionData[section.key] = data;
+    var panel = document.getElementById('panel-' + section.key);
+
+    if (section.type === 'object') {
+      fillObjectFields(panel, section.fields, data || {});
+    } else if (section.type === 'list') {
+      var container = panel.querySelector('[data-repeater="main"]');
+      buildRepeater(container, section.itemFields, data || []);
+    } else if (section.type === 'object-with-list') {
+      fillObjectFields(panel, section.fields, data || {});
+      var listContainer = panel.querySelector('[data-repeater="list"]');
+      buildRepeater(listContainer, section.itemFields, (data && data[section.listKey]) || []);
+    }
+  }
+
+  function setStatus(panel, msg, ok) {
+    var el = panel.querySelector('.status-msg');
+    el.textContent = msg;
+    el.className = 'status-msg ' + (ok ? 'ok' : 'err');
+    if (ok) setTimeout(function () { el.textContent = ''; }, 4000);
+  }
+
+  async function saveSection(section) {
+    var panel = document.getElementById('panel-' + section.key);
+    var content;
+
+    if (section.type === 'object') {
+      content = {};
+      section.fields.forEach(function (f) {
+        var input = panel.querySelector('[data-name="' + f.name + '"]');
+        content[f.name] = input ? input.value : '';
+      });
+    } else if (section.type === 'list') {
+      var container = panel.querySelector('[data-repeater="main"]');
+      content = readRepeaterValues(container, section.itemFields);
+    } else if (section.type === 'object-with-list') {
+      content = {};
+      section.fields.forEach(function (f) {
+        var input = panel.querySelector('[data-name="' + f.name + '"]');
+        content[f.name] = input ? input.value : '';
+      });
+      var listContainer = panel.querySelector('[data-repeater="list"]');
+      content[section.listKey] = readRepeaterValues(listContainer, section.itemFields);
+    }
+
+    setStatus(panel, 'Guardando…', true);
+    try {
+      var res = await fetch('/api/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: section.path, content: content })
+      });
+      var json = await res.json();
+      if (!res.ok || !json.ok) {
+        setStatus(panel, 'Error: ' + (json.error || 'no se pudo guardar'), false);
+        return;
+      }
+      setStatus(panel, '✓ Guardado. El sitio se actualizará en unos segundos.', true);
+    } catch (e) {
+      setStatus(panel, 'Error de conexión al guardar', false);
+    }
+  }
+
+  function initTabs() {
+    SECTIONS.forEach(function (section, idx) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'tab-btn' + (idx === 0 ? ' active' : '');
+      btn.textContent = section.title;
+      btn.onclick = function () { activateTab(section.key); };
+      tabsEl.appendChild(btn);
+
+      var panel = buildPanel(section);
+      if (idx === 0) panel.classList.add('active');
+      panelsEl.appendChild(panel);
+
+      panel.querySelector('.save-btn').onclick = function () { saveSection(section); };
+
+      if (section.type === 'list') {
+        panel.querySelector('[data-add="main"]').onclick = function () {
+          var container = panel.querySelector('[data-repeater="main"]');
+          var wrap = document.createElement('div');
+          wrap.innerHTML = renderRepeaterItem(section.itemFields, {});
+          container.appendChild(wrap.firstChild);
+          bindRepeaterRemove(container);
+        };
+      }
+      if (section.type === 'object-with-list') {
+        panel.querySelector('[data-add="list"]').onclick = function () {
+          var container = panel.querySelector('[data-repeater="list"]');
+          var wrap = document.createElement('div');
+          wrap.innerHTML = renderRepeaterItem(section.itemFields, {});
+          container.appendChild(wrap.firstChild);
+          bindRepeaterRemove(container);
+        };
+      }
+    });
+  }
+
+  function activateTab(key) {
+    document.querySelectorAll('.tab-btn').forEach(function (b, i) {
+      b.classList.toggle('active', SECTIONS[i].key === key);
+    });
+    document.querySelectorAll('.panel').forEach(function (p) {
+      p.classList.toggle('active', p.id === 'panel-' + key);
+    });
+  }
+
+  async function loadAllSections() {
+    for (var i = 0; i < SECTIONS.length; i++) {
+      await loadSection(SECTIONS[i]);
+    }
+  }
+
+  function fileToBase64(file) {
+    return new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var result = reader.result;
+        var base64 = result.split(',')[1];
+        resolve(base64);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function initUpload() {
+    var input = document.getElementById('image-input');
+    var statusEl = document.getElementById('upload-status');
+    var resultEl = document.getElementById('upload-result');
+    var urlEl = document.getElementById('upload-url');
+
+    input.addEventListener('change', async function () {
+      var file = input.files[0];
+      if (!file) return;
+      resultEl.style.display = 'none';
+      statusEl.className = 'status-msg';
+      statusEl.textContent = 'Subiendo…';
+
+      try {
+        var base64 = await fileToBase64(file);
+        var safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '-').toLowerCase();
+        var path = 'assets/img/uploads/' + Date.now() + '-' + safeName;
+
+        var res = await fetch('/api/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ path: path, base64: true, content: base64 })
+        });
+        var json = await res.json();
+        if (!res.ok || !json.ok) {
+          statusEl.className = 'status-msg err';
+          statusEl.textContent = 'Error: ' + (json.error || 'no se pudo subir');
+          return;
+        }
+        statusEl.className = 'status-msg ok';
+        statusEl.textContent = '✓ Imagen subida correctamente.';
+        urlEl.textContent = '/' + path;
+        resultEl.style.display = 'block';
+      } catch (e) {
+        statusEl.className = 'status-msg err';
+        statusEl.textContent = 'Error de conexión al subir la imagen';
+      }
+      input.value = '';
+    });
+  }
+
+  async function enterApp() {
+    hide(loadingScreen);
+    hide(loginScreen);
+    show(appScreen);
+    initTabs();
+    initUpload();
+    await loadAllSections();
+  }
+
+  function enterLogin() {
+    hide(loadingScreen);
+    hide(appScreen);
+    show(loginScreen);
+  }
+
+  document.getElementById('login-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var pw = document.getElementById('login-password').value;
+    var errEl = document.getElementById('login-error');
+    errEl.textContent = '';
+    try {
+      var res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: pw })
+      });
+      var json = await res.json();
+      if (!res.ok || !json.ok) {
+        errEl.textContent = json.error || 'No se pudo iniciar sesión';
+        return;
+      }
+      loadingScreen.textContent = 'Cargando panel de administración…';
+      show(loadingScreen);
+      hide(loginScreen);
+      await enterApp();
+    } catch (e) {
+      errEl.textContent = 'Error de conexión';
+    }
+  });
+
+  document.getElementById('logout-btn').addEventListener('click', async function () {
+    try { await fetch('/api/logout', { method: 'POST' }); } catch (e) {}
+    location.reload();
+  });
+
+  (async function init() {
+    var authed = await checkSession();
+    if (authed) {
+      await enterApp();
+    } else {
+      enterLogin();
+    }
+  })();
+})();
+</script>
+</body>
+</html>
