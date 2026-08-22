@@ -78,8 +78,8 @@
 
   <div class="admin-wrap">
     <div class="upload-box">
-      <h3 style="margin-top:0;">Subir una imagen</h3>
-      <p style="color:var(--color-text-soft);font-size:.9rem;">Sube una foto para usarla en el sitio (por ejemplo en una página de eventos o ministerios en el futuro). Al subirla obtendrás una dirección (URL) que puedes copiar.</p>
+      <h3 style="margin-top:0;">Subir una imagen suelta</h3>
+      <p style="color:var(--color-text-soft);font-size:.9rem;">Las fotos de Ministerios, Eventos y Liderazgo ya tienen su propio botón de "Foto" dentro de cada pestaña — úsalo ahí para que se vean directamente en esas secciones. Usa esta casilla solo si necesitas subir una imagen suelta y copiar su dirección para otro uso.</p>
       <input type="file" id="image-input" accept="image/*">
       <p id="upload-status" class="status-msg" style="margin-top:10px;"></p>
       <p id="upload-result" style="display:none;margin-top:10px;">Dirección de la imagen: <code id="upload-url"></code></p>
@@ -127,7 +127,8 @@
       itemFields: [
         { name: 'nombre', label: 'Nombre' },
         { name: 'cargo', label: 'Cargo' },
-        { name: 'bio', label: 'Biografía breve', type: 'textarea' }
+        { name: 'bio', label: 'Biografía breve', type: 'textarea' },
+        { name: 'foto', label: 'Foto', type: 'image' }
       ]
     },
     {
@@ -143,7 +144,8 @@
       itemFields: [
         { name: 'nombre', label: 'Nombre' },
         { name: 'categoria', label: 'Categoría' },
-        { name: 'descripcion', label: 'Descripción', type: 'textarea' }
+        { name: 'descripcion', label: 'Descripción', type: 'textarea' },
+        { name: 'imagen', label: 'Foto', type: 'image' }
       ]
     },
     {
@@ -151,7 +153,8 @@
       itemFields: [
         { name: 'fecha', label: 'Fecha' },
         { name: 'nombre', label: 'Nombre del evento' },
-        { name: 'descripcion', label: 'Descripción', type: 'textarea' }
+        { name: 'descripcion', label: 'Descripción', type: 'textarea' },
+        { name: 'imagen', label: 'Foto', type: 'image' }
       ]
     },
     {
@@ -214,7 +217,74 @@
     if (field.type === 'textarea') {
       return '<textarea data-name="' + esc(field.name) + '">' + esc(v) + '</textarea>';
     }
+    if (field.type === 'image') {
+      var hasImg = !!v;
+      return (
+        '<div class="image-field">' +
+          '<img class="image-preview" src="' + esc(v) + '" style="max-width:160px;max-height:120px;border-radius:8px;object-fit:cover;margin-bottom:8px;display:' + (hasImg ? 'block' : 'none') + ';">' +
+          '<input type="hidden" data-name="' + esc(field.name) + '" value="' + esc(v) + '">' +
+          '<input type="file" class="image-upload-input" accept="image/*">' +
+          '<p class="image-status status-msg" style="margin-top:6px;"></p>' +
+        '</div>'
+      );
+    }
     return '<input type="text" data-name="' + esc(field.name) + '" value="' + esc(v) + '">';
+  }
+
+  function fileToBase64(file) {
+    return new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        resolve(reader.result.split(',')[1]);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function bindImageUpload(fileInput) {
+    if (fileInput.dataset.bound) return;
+    fileInput.dataset.bound = '1';
+    fileInput.addEventListener('change', async function () {
+      var file = fileInput.files[0];
+      if (!file) return;
+      var wrap = fileInput.closest('.image-field');
+      var hidden = wrap.querySelector('input[type=hidden]');
+      var preview = wrap.querySelector('.image-preview');
+      var status = wrap.querySelector('.image-status');
+      status.className = 'image-status status-msg';
+      status.textContent = 'Subiendo…';
+      try {
+        var base64 = await fileToBase64(file);
+        var safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '-').toLowerCase();
+        var path = 'assets/img/uploads/' + Date.now() + '-' + safeName;
+        var res = await fetch('/api/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ path: path, base64: true, content: base64 })
+        });
+        var json = await res.json();
+        if (!res.ok || !json.ok) {
+          status.className = 'image-status status-msg err';
+          status.textContent = 'Error: ' + (json.error || 'no se pudo subir');
+          return;
+        }
+        var url = '/' + path;
+        hidden.value = url;
+        preview.src = url;
+        preview.style.display = 'block';
+        status.className = 'image-status status-msg ok';
+        status.textContent = '✓ Imagen subida. No olvides dar clic en "Guardar cambios" abajo.';
+      } catch (e) {
+        status.className = 'image-status status-msg err';
+        status.textContent = 'Error de conexión al subir la imagen';
+      }
+      fileInput.value = '';
+    });
+  }
+
+  function bindImageUploadsIn(container) {
+    container.querySelectorAll('.image-upload-input').forEach(bindImageUpload);
   }
 
   function renderRepeaterItem(itemFields, item) {
@@ -235,6 +305,7 @@
       container.appendChild(wrap.firstChild);
     });
     bindRepeaterRemove(container);
+    bindImageUploadsIn(container);
   }
 
   function bindRepeaterRemove(container) {
@@ -380,6 +451,7 @@
           wrap.innerHTML = renderRepeaterItem(section.itemFields, {});
           container.appendChild(wrap.firstChild);
           bindRepeaterRemove(container);
+          bindImageUploadsIn(container);
         };
       }
       if (section.type === 'object-with-list') {
@@ -389,6 +461,7 @@
           wrap.innerHTML = renderRepeaterItem(section.itemFields, {});
           container.appendChild(wrap.firstChild);
           bindRepeaterRemove(container);
+          bindImageUploadsIn(container);
         };
       }
     });
