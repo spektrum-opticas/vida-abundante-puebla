@@ -4,8 +4,23 @@
   "vision": "Ser una iglesia que impacta a Puebla y más allá, formando familias saludables, líderes íntegros y discípulos comprometidos con el Reino de Dios. [Texto de ejemplo.]",
   "valores": "Amor, integridad, servicio, excelencia y fe. Vivimos estos valores en cada área de nuestra iglesia. [Texto de ejemplo.]",
   "liderazgo": [
-    { "nombre": "[Nombre del Pastor]", "cargo": "Pastor principal", "bio": "[breve biografía de ejemplo]" },
-    { "nombre": "[Nombre]", "cargo": "[Cargo]", "bio": "[breve biografía de ejemplo]" },
-    { "nombre": "[Nombre]", "cargo": "[Cargo]", "bio": "[breve biografía de ejemplo]" }
+    {
+      "nombre": "[Nombre del Pastor]",
+      "cargo": "Pastor principal",
+      "bio": "[breve biografía de ejemplo]",
+      "foto": "/assets/img/uploads/1787374954983-1.jfif"
+    },
+    {
+      "nombre": "[Nombre]",
+      "cargo": "[Cargo]",
+      "bio": "[breve biografía de ejemplo]",
+      "foto": ""
+    },
+    {
+      "nombre": "[Nombre]",
+      "cargo": "[Cargo]",
+      "bio": "[breve biografía de ejemplo]",
+      "foto": ""
+    }
   ]
 }
