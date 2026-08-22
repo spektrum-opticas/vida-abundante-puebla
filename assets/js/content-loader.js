@@ -56,12 +56,19 @@
       }).join('');
   }
 
+  function photoBox(imgUrl, fallbackText) {
+    if (imgUrl) {
+      return '<div class="card-photo" style="padding:0;"><img src="' + esc(imgUrl) + '" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"></div>';
+    }
+    return '<div class="card-photo">' + fallbackText + '</div>';
+  }
+
   function renderMinisterios(data) {
     var el = document.querySelector('[data-field-list="ministerios"]');
     if (!el || !data || !data.length) return;
     el.innerHTML = data.map(function (m) {
       return '<div class="card--photo card">' +
-        '<div class="card-photo">Foto de ' + esc(m.nombre) + '<br>(sustituir)</div>' +
+        photoBox(m.imagen, 'Foto de ' + esc(m.nombre) + '<br>(sustituir)') +
         '<div class="card-body"><span class="badge">' + esc(m.categoria) + '</span>' +
         '<h3>' + esc(m.nombre) + '</h3><p>' + esc(m.descripcion) + '</p></div></div>';
     }).join('');
@@ -72,7 +79,7 @@
     if (!el || !data || !data.length) return;
     el.innerHTML = data.map(function (e) {
       return '<div class="card--photo card">' +
-        '<div class="card-photo">Evento especial<br>(imagen a sustituir)</div>' +
+        photoBox(e.imagen, 'Evento especial<br>(imagen a sustituir)') +
         '<div class="card-body"><span class="badge">' + esc(e.fecha) + '</span>' +
         '<h3>' + esc(e.nombre) + '</h3><p>' + esc(e.descripcion) + '</p></div></div>';
     }).join('');
@@ -83,7 +90,7 @@
     if (!el || !data || !data.length) return;
     el.innerHTML = data.map(function (p) {
       return '<div class="card--photo card">' +
-        '<div class="card-photo">Foto de ' + esc(p.nombre) + '<br>(sustituir)</div>' +
+        photoBox(p.foto, 'Foto de ' + esc(p.nombre) + '<br>(sustituir)') +
         '<div class="card-body"><h3>' + esc(p.nombre) + '</h3><p>' + esc(p.cargo) + ' — ' + esc(p.bio) + '</p></div></div>';
     }).join('');
   }
